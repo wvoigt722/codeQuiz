@@ -10,3 +10,7 @@ header {
 body {
     text-align: center;
 }
+
+#questions {
+    text-align: left;
+}

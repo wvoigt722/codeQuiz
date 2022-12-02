@@ -33,6 +33,27 @@ var qbank = [
 
 ]
 
+var listEl = document.createElement('ol');
+var li1 = document.createElement('li');
+var li2 = document.createElement('li');
+var li3 = document.createElement('li');
+var li4 = document.createElement('li');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // functions
 
 function startQuiz() {
@@ -40,6 +61,8 @@ function startQuiz() {
     counterEl.textContent = timeLeft;
     timer = setInterval(countdown ,1000)
     getQuestion();
+
+    
 }
 
 
@@ -55,13 +78,28 @@ function countdown() {
 
 }
 
+
+
 function getQuestion() {
 
     for (var i = 0; i < qbank.length; i++) {
-        questionEL.textContent = JSON.stringify(qbank[i]);
-         
+        questionEL.textContent = JSON.stringify(qbank[i].question); 
+
+li1.textContent = qbank[i].answers[0];
+li2.textContent = qbank[i].answers[1];
+li3.textContent = qbank[i].answers[2];
+li4.textContent = qbank[i].answers[3];
+
+questionEL.appendChild(listEl);
+listEl.appendChild(li1);
+listEl.appendChild(li2);
+listEl.appendChild(li3);
+listEl.appendChild(li4);
+
     }
+
     
+
 
 }
 

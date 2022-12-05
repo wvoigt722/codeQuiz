@@ -11,6 +11,6 @@ body {
     text-align: center;
 }
 
-#questions {
+.question {
     text-align: left;
 }

@@ -9,6 +9,7 @@ var choicesEl = document.querySelector('#choices');
 var timeLeft = 100;
 var timer;
 
+var currentQuestion = 0;
 var qBank = [
 
     question0 = {
@@ -35,28 +36,16 @@ var qBank = [
 ]
 
 
-
-
-
-
-
-
-
-
-
-
-
 // functions
 
 function startQuiz() {
     introEl.setAttribute('class', 'hide');
     counterEl.textContent = timeLeft;
     timer = setInterval(countdown ,1000)
-    getQuestion();
+    setQuestion();
 
     
 }
-
 
 function countdown() {
 
@@ -71,22 +60,23 @@ function countdown() {
 }
 
 
+function setQuestion() {
 
-function getQuestion() {
 
-    for (var i = 0; i < qBank.length; i++) {
-        var selectedQuestion = qBank[i].text;
-        questionEl.textContent = selectedQuestion;
-        console.log(selectedQuestion);
-    }
-    
-    for (var i = 0; i < 4; i++) {
-        const element = qBank[i].answers;
-        choicesEl.textContent = element;
-        console.log(element)
-        
-    }
+    var selectedQuestion = qBank[currentQuestion].text;
+    questionEl.textContent = selectedQuestion;
+    console.log(selectedQuestion);
 
+    choicesEl.innerHTML = '';
+
+    for (var i = 0; i < qBank[currentQuestion].answers.length; i++) {
+        var liElement = document.createElement('li');
+        var btnElement = document.createElement('button');
+        choicesEl.appendChild(liElement);
+        liElement.appendChild(btnElement);
+        const aChoices = qBank[currentQuestion].answers[i];
+        btnElement.innerHTML = aChoices;
+    }  
 }
 
 

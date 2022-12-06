@@ -9,12 +9,42 @@ header {
 
 body {
     text-align: center;
+    background-color: lightblue;
+    color: blue;
 }
 
-.question {
-    text-align: left;
-}
 
 li {
-    text-align: left;
+    text-align: center;
 }
+
+ol {
+    list-style-type:none
+}
+
+
+a {
+    color: blue;
+}
+/* 
+button {
+    color: blue;
+    background-color: lightgreen;
+    border: .1rem solid;
+    border-radius: .25rem;
+    border-color: blue;
+    margin: .1rem;
+    cursor: pointer;
+}
+
+#question {
+    display: inline;
+    background-color: orange;
+    border: .1rem solid;
+    border-radius: .25rem;
+}
+
+#into {
+    display: flex;
+    flex-direction: column;
+} */

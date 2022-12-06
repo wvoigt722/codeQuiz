@@ -38,14 +38,17 @@ var qBank = [
 
 // functions
 
+// major function of the game
+
 function startQuiz() {
     introEl.setAttribute('class', 'hide');
     counterEl.textContent = timeLeft;
     timer = setInterval(countdown ,1000)
     setQuestion();
-
     
 }
+
+// countdown function
 
 function countdown() {
 
@@ -60,8 +63,9 @@ function countdown() {
 }
 
 
-function setQuestion() {
+// function to set the question on the page
 
+function setQuestion() {
 
     var selectedQuestion = qBank[currentQuestion].text;
     questionEl.textContent = selectedQuestion;
@@ -72,12 +76,15 @@ function setQuestion() {
     for (var i = 0; i < qBank[currentQuestion].answers.length; i++) {
         var liElement = document.createElement('li');
         var btnElement = document.createElement('button');
+        btnElement.setAttribute('data-index', i)
         choicesEl.appendChild(liElement);
         liElement.appendChild(btnElement);
         const aChoices = qBank[currentQuestion].answers[i];
         btnElement.innerHTML = aChoices;
     }  
+    
 }
+
 
 
 
@@ -95,3 +102,18 @@ function endGame() {
 // event listener for buttons
 
 startBtn.addEventListener('click', startQuiz);
+
+choicesEl.addEventListener('click', function(event){
+
+console.log(event.target)
+    if (event.target.matches('button')) {
+        console.log('this worked')
+        currentQuestion++
+        console.log(currentQuestion)
+
+        
+        // then we compare if button selected matches correct answer
+
+    }
+})
+

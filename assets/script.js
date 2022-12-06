@@ -77,13 +77,23 @@ function setQuestion() {
         var liElement = document.createElement('li');
         var btnElement = document.createElement('button');
         btnElement.setAttribute('data-index', i)
+
+
+        btnElement.addEventListener('click', function(event) {
+        console.log('this worked')
+        currentQuestion++
+        console.log(currentQuestion)
+     });   
+    
         choicesEl.appendChild(liElement);
         liElement.appendChild(btnElement);
         const aChoices = qBank[currentQuestion].answers[i];
         btnElement.innerHTML = aChoices;
     }  
-    
+
+    setQuestion();
 }
+
 
 
 
@@ -102,18 +112,4 @@ function endGame() {
 // event listener for buttons
 
 startBtn.addEventListener('click', startQuiz);
-
-choicesEl.addEventListener('click', function(event){
-
-console.log(event.target)
-    if (event.target.matches('button')) {
-        console.log('this worked')
-        currentQuestion++
-        console.log(currentQuestion)
-
-        
-        // then we compare if button selected matches correct answer
-
-    }
-})
 
